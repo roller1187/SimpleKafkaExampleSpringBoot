@@ -4,11 +4,11 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.contactsunny.poc</groupId>
-    <artifactId>SimpleKafkaProducer</artifactId>
+    <groupId>com.redhat.demo</groupId>
+    <artifactId>simpleKafkaApp</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <name>SimpleKafkaProducer</name>
+    <name>simpleKafkaApp</name>
     <url>http://maven.apache.org</url>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -50,6 +50,12 @@
             <artifactId>jettison</artifactId>
             <version>1.2</version>
         </dependency>
+        
+        <dependency>
+    		<groupId>org.springframework</groupId>
+    		<artifactId>spring-web</artifactId>
+		</dependency>
+        
 
     </dependencies>
 

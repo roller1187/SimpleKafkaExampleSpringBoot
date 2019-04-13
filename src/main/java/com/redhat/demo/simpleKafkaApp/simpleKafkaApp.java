@@ -1,6 +1,6 @@
-package com.contactsunny.poc.SimpleKafkaProducer;
+package com.redhat.demo.simpleKafkaApp;
 
-import com.contactsunny.poc.SimpleKafkaProducer.kafkaConsumers.SimpleKafkaConsumer;
+import com.redhat.demo.simpleKafkaApp.kafkaConsumers.simpleKafkaConsumer;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.log4j.Logger;
@@ -14,7 +14,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import java.util.Properties;
 
 @SpringBootApplication
-public class SimpleKafkaProducerApplication implements CommandLineRunner {
+public class simpleKafkaApp implements CommandLineRunner {
 
     @Value("${kafka.topic.thetechcheck}")
     private String theTechCheckTopicName;
@@ -28,10 +28,10 @@ public class SimpleKafkaProducerApplication implements CommandLineRunner {
     @Value("${zookeeper.host}")
     String zookeeperHost;
 
-    private static final Logger logger = Logger.getLogger(SimpleKafkaProducerApplication.class);
+    private static final Logger logger = Logger.getLogger(simpleKafkaApp.class);
 
     public static void main( String[] args ) {
-        SpringApplication.run(SimpleKafkaProducerApplication.class, args);
+        SpringApplication.run(simpleKafkaApp.class, args);
     }
 
     @Override
@@ -86,7 +86,7 @@ public class SimpleKafkaProducerApplication implements CommandLineRunner {
         Thread kafkaConsumerThread = new Thread(() -> {
             logger.info("Starting Kafka consumer thread.");
 
-            SimpleKafkaConsumer simpleKafkaConsumer = new SimpleKafkaConsumer(
+            simpleKafkaConsumer simpleKafkaConsumer = new simpleKafkaConsumer(
                     theTechCheckTopicName,
                     consumerProperties
             );

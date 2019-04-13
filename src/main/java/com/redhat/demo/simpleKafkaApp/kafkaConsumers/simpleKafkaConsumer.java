@@ -1,4 +1,4 @@
-package com.contactsunny.poc.SimpleKafkaProducer.kafkaConsumers;
+package com.redhat.demo.simpleKafkaApp.kafkaConsumers;
 
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
@@ -14,13 +14,13 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
-public class SimpleKafkaConsumer {
+public class simpleKafkaConsumer {
 
-    private static final Logger logger = Logger.getLogger(SimpleKafkaConsumer.class);
+    private static final Logger logger = Logger.getLogger(simpleKafkaConsumer.class);
 
     private KafkaConsumer<String, String> kafkaConsumer;
 
-    public SimpleKafkaConsumer(String theTechCheckTopicName, Properties consumerProperties) {
+    public simpleKafkaConsumer(String theTechCheckTopicName, Properties consumerProperties) {
 
         kafkaConsumer = new KafkaConsumer<>(consumerProperties);
         kafkaConsumer.subscribe(Arrays.asList(theTechCheckTopicName));
