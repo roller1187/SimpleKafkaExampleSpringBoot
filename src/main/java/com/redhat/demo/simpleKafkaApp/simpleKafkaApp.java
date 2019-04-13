@@ -16,8 +16,8 @@ import java.util.Properties;
 @SpringBootApplication
 public class simpleKafkaApp implements CommandLineRunner {
 
-    @Value("${kafka.topic.thetechcheck}")
-    private String theTechCheckTopicName;
+    @Value("${kafka.topic}")
+    private String topicName;
 
     @Value("${kafka.bootstrap.servers}")
     private String kafkaBootstrapServers;
@@ -87,7 +87,7 @@ public class simpleKafkaApp implements CommandLineRunner {
             logger.info("Starting Kafka consumer thread.");
 
             simpleKafkaConsumer simpleKafkaConsumer = new simpleKafkaConsumer(
-                    theTechCheckTopicName,
+                    topicName,
                     consumerProperties
             );
 
@@ -114,7 +114,7 @@ public class simpleKafkaApp implements CommandLineRunner {
         simple message to Kafka.
          */
         for (int index = 0; index < 10; index++) {
-            sendKafkaMessage("The index is now: " + index, producer, theTechCheckTopicName);
+            sendKafkaMessage("The index is now: " + index, producer, topicName);
         }
 
         /*
@@ -159,7 +159,7 @@ public class simpleKafkaApp implements CommandLineRunner {
             You can use any JSON library for this, just make sure it serializes your objects properly.
             A popular alternative to the one I've used is Gson.
              */
-            sendKafkaMessage(jsonObject.toString(), producer, theTechCheckTopicName);
+            sendKafkaMessage(jsonObject.toString(), producer, topicName);
         }
     }
 
